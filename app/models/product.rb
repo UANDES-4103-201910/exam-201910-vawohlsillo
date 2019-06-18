@@ -1,6 +1,6 @@
 class Product < ApplicationRecord
-	self.inheritance_column = :foo
-	validates :brand, :type, presence: true
+	#self.inheritance_column = :foo
+	validates :brand, :category, presence: true
 	validates :price, numericality: true
 	validates :short_description, length: {maximum: 150, too_long: "%{count} characters is the maximum allow"}
 	validates :long_description, length: {maximum: 1200, too_long: "%{count} characters is the maximum allow"}

@@ -7,9 +7,43 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <style>
+      .body{
+        background-color: #0f8c0d;
+      }
+      .jumbotron{
+        color: white;
+      }
+      .b1{
+        white-space: normal;
+      }
+    </style>
   </head>
 
   <body>
+    <div class="topnav">
+      <div class="float-left">
+        <p> <%= link_to "Z-Mobile", root_path %> </p>
+      </div>
+      <div class="float-right">
+
+      </div>
+    </div>
+    <div class="page-header">
+      <nav class="navbar navbar-inverse bg-inverse">
+        <center>
+          <button id="b1" type="submit" class="btn btn-default btn-lg" role="button">     
+              <%= link_to "Handsets", _path, class: "button is-info" %> 
+          </button>
+          <button id="b1" type="submit" class="btn btn-default btn-lg" role="button">     
+              <%= link_to "Pre-paid Cards", _path, class: "button is-info" %> 
+          </button>
+          <button id="b1" type="submit" class="btn btn-default btn-lg" role="button">     
+              <%= link_to "Suscription Plans", _path, class: "button is-info" %> 
+          </button>
+        </center>
+      </nav>
+    </div>
     <%= yield %>
   </body>
 </html>

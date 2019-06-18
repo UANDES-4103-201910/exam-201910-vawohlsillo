@@ -11,9 +11,9 @@ for u in users do
 	u.save!
 end
 
-product1 = Product.new( brand: "Samsung", type: "Handset", model: "S10", variant: "color black, 64 GB capacity", short_description: "The most powerful smartphone in the market", long_description: "Samsung surprise us again with their new smartphone S10 from their S Galaxy line. This mobile has the most colorful and sensitive graphics compare to other smartphones", price: 800000)
-product2 = Product.new( brand: "Claro", type: "Pre-paid card",  price: 5000, short_description: "Claro pre-paid card", long_description: "Add 60 minutes to talk with other people")
-product3 = Product.new( brand: "WOM", type: "Suscription plan", price: 10000, short_description: "WOM 4G for only $10.000", long_description: "Adquire our new 20 GB on mobile internet 4G, offer only for june" )
+product1 = Product.new( brand: "Samsung", category: "Handset", model: "S10", variant: "color black, 64 GB capacity", short_description: "The most powerful smartphone in the market", long_description: "Samsung surprise us again with their new smartphone S10 from their S Galaxy line. This mobile has the most colorful and sensitive graphics compare to other smartphones", price: 800000)
+product2 = Product.new( brand: "Claro", category: "Pre-paid card",  price: 5000, short_description: "Claro pre-paid card", long_description: "Add 60 minutes to talk with other people")
+product3 = Product.new( brand: "WOM", category: "Suscription plan", price: 10000, short_description: "WOM 4G for only $10.000", long_description: "Adquire our new 20 GB on mobile internet 4G, offer only for june" )
 
 products = [product1, product2, product3]
 for p in products do
