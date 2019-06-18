@@ -9,10 +9,13 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <style>
       .body{
-        background-color: #0f8c0d;
+        background-color: grey;
       }
       .jumbotron{
         color: white;
+      }
+      .topnav{
+        background-color: #F7FE2E;
       }
       .b1{
         white-space: normal;
@@ -20,30 +23,44 @@
     </style>
   </head>
 
-  <body>
+<% if notice %>   
+    <p class="alert alert-success"><%= notice %></p>
+<% end %>
+<% if alert %>
+    <p class="alert alert-danger"><%= alert %></p>
+<% end %>
+  
+
+  <body style='background-color: grey'>
     <div class="topnav">
       <div class="float-left">
-        <p> <%= link_to "Z-Mobile", root_path %> </p>
+        <font size="10"> <p> <%= link_to "Z-Mobile", root_path %> </p></font>
       </div>
       <div class="float-right">
-
+          <% if user_signed_in? %>
+             <button  id="b1" type="submit" class="btn btn-default btn-lg" role="button"> <%=link_to 'Log out', destroy_user_session_path, method: :delete %></button>
+          <% else %> 
+              <button id="Sign up" type="submit" class="btn btn-default btn-lg" role="button"> <%= link_to 'Sign In', new_user_registration_path %></button> 
+              <button id="Log in" type="submit" class="btn btn-default btn-lg" role="button"> <%= link_to 'Log In', new_user_session_path %></button>
+          <% end %> 
       </div>
     </div>
-    <div class="page-header">
-      <nav class="navbar navbar-inverse bg-inverse">
-        <center>
-          <button id="b1" type="submit" class="btn btn-default btn-lg" role="button">     
-              <%= link_to "Handsets", _path, class: "button is-info" %> 
-          </button>
-          <button id="b1" type="submit" class="btn btn-default btn-lg" role="button">     
-              <%= link_to "Pre-paid Cards", _path, class: "button is-info" %> 
-          </button>
-          <button id="b1" type="submit" class="btn btn-default btn-lg" role="button">     
-              <%= link_to "Suscription Plans", _path, class: "button is-info" %> 
-          </button>
-        </center>
-      </nav>
-    </div>
+    
+    <nav class="navbar navbar-inverse bg-inverse">
+      <center>
+        <button id="b1" type="submit" class="btn btn-default btn-lg" role="button">     
+            <%= link_to "Handsets", category_path("Handsets"), class: "button is-info" %> 
+        </button>
+        <button id="b1" type="submit" class="btn btn-default btn-lg" role="button">     
+            <%= link_to "Pre-paid Cards", category_path("Pre-paid card"), class: "button is-info" %> 
+        </button>
+        <button id="b1" type="submit" class="btn btn-default btn-lg" role="button">     
+            <%= link_to "Suscription Plans", category_path("Suscription plan"), class: "button is-info" %>
+        </button>
+      </center>
+    </nav>
+    
     <%= yield %>
+
   </body>
 </html>
